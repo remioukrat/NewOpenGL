@@ -1,7 +1,7 @@
 #ifndef __VGL_H__
 #define __VGL_H__
 
-// #define USE_GL3W
+//#define USE_GL3W
 
 #ifdef USE_GL3W
 
