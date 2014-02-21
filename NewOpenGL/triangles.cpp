@@ -5,9 +5,13 @@
 ///////////////////////////////////////////////////////////////////////
 #include <iostream>
 using namespace std;
+
 #include "vgl.h"
 #include "LoadShaders.h"
-enum VAO_IDs { Triangles, NumVAOs };
+
+
+
+enum VAO_IDs { Triangles, NumVAOs};
 enum Buffer_IDs { ArrayBuffer, NumBuffers };
 enum Attrib_IDs { vPosition = 0 };
 GLuint VAOs[NumVAOs];
@@ -20,7 +24,7 @@ const GLuint NumVertices = 6;
 void
 init(void)
 {
-	glGenVertexArrays(NumVAOs, VAOs);
+	glGenVertexArrays(NumVAOs,VAOs);
 	glBindVertexArray(VAOs[Triangles]);
 	GLfloat vertices[NumVertices][2] = {
 		{ -0.90, -0.90 }, // Triangle 1
@@ -70,6 +74,8 @@ main(int argc, char** argv)
 	glutInitContextVersion(4, 3);
 	glutInitContextProfile(GLUT_CORE_PROFILE);
 	glutCreateWindow(argv[0]);
+
+	glewExperimental = GL_TRUE;
 	if (glewInit()) {
 		cerr << "Unable to initialize GLEW ... exiting" << endl;
 		exit(EXIT_FAILURE);
