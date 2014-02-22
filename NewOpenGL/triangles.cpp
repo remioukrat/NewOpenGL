@@ -28,7 +28,7 @@ enum Attrib_IDs
 
 GLuint tab_vaos[NUM_VAOS];
 GLuint tab_buffers[NUM_BUFFERS];
-const GLuint NumVertices = 6;
+const GLuint num_vertices = 6;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// @fn	void init(void)
@@ -44,9 +44,34 @@ const GLuint NumVertices = 6;
 
 void init(void)
 {
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// @fn	glGenVertexArrays(NUM_VAOS, tab_vaos);
+	///
+	/// @brief	To generate Vertex array.
+	///
+	/// @author	Rémi
+	/// @date	22/02/2014
+	///
+	/// @param	parameter1	GLsizei.
+	/// @param	parameter2	GLuint* arrays.
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	glGenVertexArrays(NUM_VAOS, tab_vaos);
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// @fn	glBindVertexArray(tab_vaos[TRIANGLES]);
+	///
+	/// @brief	To bind with vertex array object.
+	///
+	/// @author	Rémi
+	/// @date	22/02/2014
+	///
+	/// @param	parameter1	GLuint array.
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	glBindVertexArray(tab_vaos[TRIANGLES]);
-	GLfloat vertices[NumVertices][2] = {
+
+	GLfloat vertices[num_vertices][2] = {
 		{ -0.90, -0.90 }, // Triangle 1
 		{ 0.85, -0.90 },
 		{ -0.90, 0.85 },
@@ -54,8 +79,49 @@ void init(void)
 		{ 0.90, 0.90 },
 		{ -0.85, 0.90 }
 	};
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// @fn	glGenBuffers(NUM_BUFFERS, tab_buffers);
+	///
+	/// @brief	To generate vertex buffer.
+	///
+	/// @author	Rémi
+	/// @date	22/02/2014
+	///
+	/// @param	parameter1	Glsizei.
+	/// @param	parameter2	GLuint* buffers.
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	glGenBuffers(NUM_BUFFERS, tab_buffers);
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// @fn	glBindBuffer(GL_ARRAY_BUFFER, tab_buffers[ARRAY_BUFFER]);
+	///
+	/// @brief	To bind with vertex buffer object.
+	///
+	/// @author	Rémi
+	/// @date	22/02/2014
+	///
+	/// @param	parameter1	GLenum target.
+	/// @param	parameter2	CLuint buffer.
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	glBindBuffer(GL_ARRAY_BUFFER, tab_buffers[ARRAY_BUFFER]);
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// @fn	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	///
+	/// @brief	To load data.
+	///
+	/// @author	Rémi
+	/// @date	22/02/2014
+	///
+	/// @param	parameter1	GLenum target.
+	/// @param	parameter2	GLsizeiptr size.
+	/// @param	parameter3	const GLvoid *data.
+	/// @param	parameter4	GLenum usage.
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 	ShaderInfo shaders[] = {
@@ -86,7 +152,7 @@ void display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glBindVertexArray(tab_vaos[TRIANGLES]);
-	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+	glDrawArrays(GL_TRIANGLES, 0, num_vertices);
 	glFlush();
 }
 
