@@ -118,15 +118,15 @@ void init(void)
 	///
 	/// @param	parameter1	GLenum target.
 	/// @param	parameter2	GLsizeiptr size.
-	/// @param	parameter3	const GLvoid *data.
+	/// @param	parameter3	const GLvoid* data.
 	/// @param	parameter4	GLenum usage.
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 	ShaderInfo shaders[] = {
-		{ GL_VERTEX_SHADER, "TRIANGLES.vert" },
-		{ GL_FRAGMENT_SHADER, "TRIANGLES.frag" },
+		{ GL_VERTEX_SHADER, "triangles.vert" },
+		{ GL_FRAGMENT_SHADER, "triangles.frag" },
 		{ GL_NONE, NULL }
 	};
 
@@ -134,6 +134,7 @@ void init(void)
 	glUseProgram(program);
 	glVertexAttribPointer(V_POSITION, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 	glEnableVertexAttribArray(V_POSITION);
+	//glClearColor(0, 0, 0, 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
