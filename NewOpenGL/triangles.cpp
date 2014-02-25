@@ -30,6 +30,7 @@ GLuint tab_vaos[NUM_VAOS];
 GLuint tab_buffers[NUM_BUFFERS];
 const GLuint num_vertices = 6;
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// @fn	void init(void)
 ///
@@ -44,6 +45,7 @@ const GLuint num_vertices = 6;
 
 void init(void)
 {
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// @fn	glGenVertexArrays(NUM_VAOS, tab_vaos);
 	///
@@ -132,8 +134,9 @@ void init(void)
 
 	GLuint program = LoadShaders(shaders);
 	glUseProgram(program);
-	glVertexAttribPointer(V_POSITION, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
-	glEnableVertexAttribArray(V_POSITION);
+		glVertexAttribPointer(V_POSITION, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
+		glEnableVertexAttribArray(V_POSITION);
+	glUseProgram(0);
 	//glClearColor(0, 0, 0, 1);
 }
 
