@@ -186,6 +186,7 @@ int main(int argc, char** argv)
 	glutInitContextProfile(GLUT_CORE_PROFILE);
 	glutCreateWindow(argv[0]);
 
+    /* This line is an obligation to display the triangle */
 	glewExperimental = GL_TRUE;
 	if (glewInit()) {
 		cerr << "Unable to initialize GLEW ... exiting" << endl;
